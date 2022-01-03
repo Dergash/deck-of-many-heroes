@@ -21,4 +21,6 @@ a {
 :root {
   --primary: #546e7a;
   --primaryText: white;
+  --primaryDark: #29434e;
+  --secondaryText: rgba(0, 0, 0, 0.87);
 }

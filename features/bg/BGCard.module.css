@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: white;
+    color: var(--secondaryText);
+    min-width: 256px;
+}
+
+.sider {
+    background: var(--primaryDark);
+    max-width: 110px;
+}
+
+.name {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+    margin-bottom: 8px;
+    margin-top: 4px;
+    text-align: center;
+    white-space: normal;
+}
+
+.game {
+    display: flex;
+}

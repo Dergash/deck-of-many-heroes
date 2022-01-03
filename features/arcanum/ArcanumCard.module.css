@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 256px;
+}
+
+.header {
+    background-color: var(--primaryDark);
+    display: flex;
+}
+
+.name {
+    font-size: 24px;
+    margin: 0;
+    margin-left: 8px;
+    margin-top: 8px;
+    margin-right: 16px;
+}
+
+.info {
+    background-color: white;
+    color: var(--secondaryText);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.levelRange {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game {
+    display: flex;
+}
