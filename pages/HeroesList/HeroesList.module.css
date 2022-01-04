@@ -7,6 +7,8 @@
     gap: 16px;
 }
 
-.card {
-   /* background-color: var(--primaryDark); */
+@media screen and (max-width: 959px) {
+    .card {
+        width: 100%;
+     }
 }
