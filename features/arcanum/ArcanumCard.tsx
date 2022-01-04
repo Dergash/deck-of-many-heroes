@@ -29,6 +29,12 @@ export function ArcanumCard({ hero }: ArcanumCardProps) {
             <span className={styles.game}>
                 {hero.game}
             </span>
+            <div className={styles.levelRange}>
+                <span>
+                    Adjust level:
+                </span>
+                <input type="range" min="1" max="50" value={level} onChange={handleLevelChange} />
+            </div>
             <hr />
             <span>
                 Race: {hero.race}
@@ -45,12 +51,6 @@ export function ArcanumCard({ hero }: ArcanumCardProps) {
             <span>
                 Level: {level}
             </span>
-            <div className={styles.levelRange}>
-                <span>
-                    Adjust level:
-                </span>
-                <input type="range" min="1" max="50" value={level} onChange={handleLevelChange} />
-            </div>
         </div>
     </div>
 }
