@@ -1,9 +1,9 @@
 import React from 'react'
-import { BgHero } from '../../types/types'
+import { Bg2Hero, Bg1Hero } from '../../types/types'
 import styles from './BGCard.module.css'
 
 export interface BGCardProps {
-    hero: BgHero
+    hero: Bg1Hero | Bg2Hero
 }
 
 export function BGCard({ hero }: BGCardProps) {
@@ -25,6 +25,16 @@ export function BGCard({ hero }: BGCardProps) {
             <span>
                 Starting XP: {hero.startingXp}
             </span>
+            <div className={styles.proficiencies}>
+                Proficiencies:
+                <ul className={styles.proficienciesList}>
+                    {Object.entries(hero.proficiencies).map(([proficiency, points]) => {
+                        return <li key={proficiency}>
+                            {proficiency}: {new Array(points).fill('○').join(' ')}
+                        </li>
+                    })}
+                </ul>
+            </div>
         </div>
     </div>
 }

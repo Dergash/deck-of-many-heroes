@@ -1,3 +1,5 @@
+import { Bg1Proficiency, Bg2Proficiency } from "../features/bg/ruleset"
+
 export interface Hero {
     id: string
     name: string
@@ -6,11 +8,20 @@ export interface Hero {
     portrait: string
 }
 
-export type AnyHero = BgHero | ArcanumHero
+export type AnyHero = Bg1Hero | Bg2Hero | ArcanumHero
 
 export interface BgHero extends Hero {
     game: 'BG1' | 'BG1: ToSC' | 'BG2' | 'BG2: SoA' | 'BG2: ToB' | 'BG: EE' | 'BG: SoD' | 'BG2: EE',
     startingXp: number
+    proficiencies: Bg1Proficiency | Bg2Proficiency
+}
+
+export interface Bg1Hero extends BgHero {
+    proficiencies: Bg1Proficiency
+}
+
+export interface Bg2Hero extends BgHero {
+    proficiencies: Bg2Proficiency
 }
 
 export interface ArcanumHero extends Hero {

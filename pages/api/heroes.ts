@@ -19,16 +19,23 @@ export function getHeroes(): AnyHero[] {
       race: 'Human',
       game: 'BG1',
       startingXp: 9,
-      portrait: 'bg1-imoen.png'
+      portrait: 'bg1-imoen.png',
+      proficiencies: {
+        Bow: 1,
+        'Small Sword': 1
+      }
     },
-    /*
     {
       id: '2',
       name: 'Imoen',
       race: 'Human',
       game: 'BG1',
       startingXp: 1304 ,
-      portrait: 'bg1-imoen.png'
+      portrait: 'bg1-imoen.png',
+      proficiencies: {
+        Bow: 1,
+        'Small Sword': 1
+      }
     },
     {
       id: '3',
@@ -36,7 +43,11 @@ export function getHeroes(): AnyHero[] {
       race: 'Human',
       game: 'BG1',
       startingXp: 5124,
-      portrait: 'bg1-imoen.png'
+      portrait: 'bg1-imoen.png',
+      proficiencies: {
+        Bow: 1,
+        'Small Sword': 1
+      }
     },
     {
       id: '4',
@@ -44,9 +55,13 @@ export function getHeroes(): AnyHero[] {
       race: 'Human',
       game: 'BG1',
       startingXp: 20636,
-      portrait: 'bg1-imoen.png'
+      portrait: 'bg1-imoen.png',
+      proficiencies: {
+        Bow: 1,
+        'Small Sword': 1,
+        "Blunt Weapons": 1
+      }
     },
-    */
     {
       id: '5',
       name: 'Virgil',
@@ -62,6 +77,7 @@ export function getHeroes(): AnyHero[] {
       game: 'BG2: SoA',
       startingXp: 400000,
       portrait: 'bg2-imoen.jpg',
+      proficiencies: {}
     },
     /*
     {
@@ -95,7 +111,12 @@ export function getHeroes(): AnyHero[] {
      race: 'Human',
      game: 'BG1',
      portrait: 'bg1-minsc.png',
-     startingXp: 258
+     startingXp: 258,
+     proficiencies: {
+       'Large Sword': 2,
+       'Spiked Weapons': 1,
+       'Axe': 1
+     }
    },
    {
      id: '11',
@@ -103,7 +124,11 @@ export function getHeroes(): AnyHero[] {
      race: 'Human',
      game: 'BG1',
      portrait: 'bg1-garrick.png',
-     startingXp: 76
+     startingXp: 76,
+      proficiencies: {
+        'Small Sword': 1,
+        'Missile Weapons': 1
+      }
    },
    {
     id: '11',
@@ -111,7 +136,11 @@ export function getHeroes(): AnyHero[] {
     race: 'Elf',
     game: 'BG1',
     portrait: 'bg1-viconia.png',
-    startingXp: 1603
+    startingXp: 1603,
+    proficiencies: {
+      'Blunt Weapons': 1,
+      'Missile Weapons': 1
+    }
    },
    {
      id: '12',
@@ -119,7 +148,11 @@ export function getHeroes(): AnyHero[] {
      race: 'Gnome',
      game: 'BG1',
      portrait: 'bg1-tiax.png',
-     startingXp: 3091
+     startingXp: 3091,
+     proficiencies: {
+      'Blunt Weapons': 1,
+      'Missile Weapons': 1
+    }
    },
    {
      id: '13',

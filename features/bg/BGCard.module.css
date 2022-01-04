@@ -31,3 +31,13 @@
 .game {
     display: flex;
 }
+
+.proficiencies {
+    margin-top: 8px;
+}
+
+.proficienciesList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
