@@ -13,6 +13,14 @@
     color: var(--secondaryText);
 }
 
+.disabled {
+    filter: opacity(0.65);
+}
+
+.disabledImg {
+    filter: grayscale(1);
+}
+
 @media screen and (min-width: 960px) {
     .info {
         min-width: 256px;

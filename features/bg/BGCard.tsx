@@ -1,12 +1,14 @@
 import React, { useState, FormEvent } from 'react'
 import { Bg2Hero, Bg1Hero } from '../../types/types'
+import cn from '../../styles/cn'
 import styles from './BGCard.module.css'
 
 export interface BGCardProps {
     hero: Bg1Hero[] | Bg2Hero[]
+    disabled?: boolean
 }
 
-export function BGCard({ hero }: BGCardProps) {
+export function BGCard({ hero, disabled }: BGCardProps) {
     const [cardIndex, setCardIndex] = useState(0)
     
     const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
@@ -15,9 +17,9 @@ export function BGCard({ hero }: BGCardProps) {
 
     const card = hero[cardIndex]
 
-    return <div className={styles.container}>
+    return <div className={cn(styles.container, { [ styles.disabled]: disabled!! })} >
         <aside className={styles.sider}>
-            <img src={`/${hero[cardIndex].portrait}`} width="110px" height="170px" />
+            <img src={`/${hero[cardIndex].portrait}`} width="110px" height="170px" className={disabled ? styles.disabledImg : undefined} />
             <h2 className={styles.name}>
                 {card.name}
             </h2>
@@ -30,7 +32,14 @@ export function BGCard({ hero }: BGCardProps) {
                 <span>
                     Adjust level:
                 </span>
-                <input type="range" min="0" max={hero.length - 1} value={cardIndex} onChange={handleCardChange} />
+                <input
+                    type="range"
+                    min="0"
+                    max={hero.length - 1}
+                    value={cardIndex}
+                    disabled={disabled}
+                    onChange={handleCardChange}
+                />
             </div>
             <hr />
             <span>

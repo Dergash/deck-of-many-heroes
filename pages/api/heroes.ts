@@ -115,7 +115,8 @@ export function getHeroes(): AnyHero[] {
        'Large Sword': 2,
        'Spiked Weapons': 1,
        'Axe': 1
-     }
+     },
+     disabled: true
    },
    {
      id: '11',
@@ -124,10 +125,11 @@ export function getHeroes(): AnyHero[] {
      game: 'BG1',
      portrait: 'bg1-garrick.png',
      startingXp: 76,
-      proficiencies: {
+     proficiencies: {
         'Small Sword': 1,
         'Missile Weapons': 1
-      }
+     },
+     disabled: true
    },
    {
     id: '11',
@@ -139,7 +141,8 @@ export function getHeroes(): AnyHero[] {
     proficiencies: {
       'Blunt Weapons': 1,
       'Missile Weapons': 1
-    }
+    },
+    disabled: true
    },
    {
      id: '12',
@@ -151,7 +154,8 @@ export function getHeroes(): AnyHero[] {
      proficiencies: {
       'Blunt Weapons': 1,
       'Missile Weapons': 1
-    }
+    },
+    disabled: true
    },
    {
      id: '13',

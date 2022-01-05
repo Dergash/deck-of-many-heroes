@@ -19,7 +19,7 @@ export function HeroesList({ heroes }: HeroesListProps) {
             const bgDeck = isBgHero(deck[0]) && deck as BgHero[]
             const nwnDeck =isNwnHero(deck[0]) && deck as NwnHero[]
             return <li key={name} className={styles.card}>
-                { bgDeck && <BGCard hero={bgDeck} /> }
+                { bgDeck && <BGCard hero={bgDeck} disabled={bgDeck[0].disabled} /> }
                 { arcanumCard && <ArcanumCard hero={arcanumCard} /> }
                 { nwnDeck && <NeverwinterCard hero={nwnDeck} />}
             </li>
