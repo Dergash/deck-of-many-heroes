@@ -1,4 +1,5 @@
 import { Bg1Proficiency, Bg2Proficiency } from "../features/bg/ruleset"
+import { NwnHero } from "../features/nwn/ruleset"
 
 export interface Hero {
     id: string
@@ -8,7 +9,7 @@ export interface Hero {
     portrait: string
 }
 
-export type AnyHero = Bg1Hero | Bg2Hero | ArcanumHero
+export type AnyHero = Bg1Hero | Bg2Hero | ArcanumHero | NwnHero
 
 export interface BgHero extends Hero {
     game: 'BG1' | 'BG1: ToSC' | 'BG2' | 'BG2: SoA' | 'BG2: ToB' | 'BG: EE' | 'BG: SoD' | 'BG2: EE',
@@ -35,4 +36,8 @@ export function isBgHero(hero: Hero): hero is BgHero {
 
 export function isArcanumHero(hero: Hero): hero is ArcanumHero {
     return hero.game === 'Arcanum'
+}
+
+export function isNwnHero(hero: Hero): hero is NwnHero {
+    return hero.game === 'NWN'
 }

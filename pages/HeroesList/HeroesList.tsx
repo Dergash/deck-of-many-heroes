@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react'
-import { BgHero, Hero, isArcanumHero, isBgHero } from '../../types/types'
+import { BgHero, Hero, isArcanumHero, isBgHero, isNwnHero } from '../../types/types'
 import { ArcanumCard } from '../../features/arcanum/ArcanumCard'
 import { BGCard } from '../../features/bg/BGCard'
 import styles from './HeroesList.module.css'
+import { NwnHero } from '../../features/nwn/ruleset'
+import { NeverwinterCard } from '../../features/nwn/NeverwinterCard'
 
 export interface HeroesListProps {
     heroes: Hero[]
@@ -13,11 +15,13 @@ export function HeroesList({ heroes }: HeroesListProps) {
     
     return <ul className={styles.container}>
         {Object.entries(groupedHeroes)?.map(([name, deck]) => {
-            const arcanumCard = !Array.isArray(deck) && isArcanumHero(deck) && deck
-            const bgDeck = Array.isArray(deck) && isBgHero(deck[0]) && deck as BgHero[]
+            const arcanumCard = isArcanumHero(deck[0]) && deck[0]
+            const bgDeck = isBgHero(deck[0]) && deck as BgHero[]
+            const nwnDeck =isNwnHero(deck[0]) && deck as NwnHero[]
             return <li key={name} className={styles.card}>
                 { bgDeck && <BGCard hero={bgDeck} /> }
                 { arcanumCard && <ArcanumCard hero={arcanumCard} /> }
+                { nwnDeck && <NeverwinterCard hero={nwnDeck} />}
             </li>
         })}
     </ul>
@@ -31,15 +35,11 @@ export function HeroesList({ heroes }: HeroesListProps) {
  * @returns Dictionary of heroes decks grouped by their names 
  */
 function getHeroesDeck(heroes: Hero[]) {
-    const decks: Record<string, Hero | Hero[]> = {}
+    const decks: Record<string, Hero[]> = {}
     heroes?.forEach(hero => {
-        if (!isBgHero(hero)) {
-            decks[hero.name] = hero
-            return
-        }
         const deck = decks[hero.name]
-        if (Array.isArray(deck)) {
-            deck.push(hero)
+        if (deck) {
+            decks[hero.name].push(hero)
         } else {
             decks[hero.name] = [hero]
         }

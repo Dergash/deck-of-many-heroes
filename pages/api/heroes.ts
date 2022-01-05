@@ -79,7 +79,6 @@ export function getHeroes(): AnyHero[] {
       portrait: 'bg2-imoen.jpg',
       proficiencies: {}
     },
-    /*
     {
       id: '7',
       name: 'Imoen',
@@ -87,8 +86,8 @@ export function getHeroes(): AnyHero[] {
       game: 'BG2: SoA',
       startingXp: 1200000,
       portrait: 'bg2-imoen.jpg',
+      proficiencies: {}
     },
-    */
    {
      id: '8',
      name: 'Sogg Mead Mug',
@@ -161,6 +160,88 @@ export function getHeroes(): AnyHero[] {
      game: 'Arcanum',
      portrait: 'arcanum-geoffrey.png',
      startingLevel: 12
-   }
+   },
+   {
+     id: '14',
+     name: 'Linu La\'neral',
+     race: 'Elf',
+     game: 'NWN',
+     startingLevel: {
+       Cleric: 4
+     },
+     strength: 16,
+     dexterity: 10,
+     constitution: 14,
+     intelligence: 10,
+     wisdom: 16,
+     charisma: 12,
+     portrait: 'nwn-linu.png',
+     baseHp: 32,
+     saves: {
+       fortitude: 4,
+       reflex: 1,
+       will: 4
+     },
+     skills: {
+       Concentration: 6,
+       Discipline: 3,
+       Listen: 1,
+     }
+   },
+   {
+    id: '15',
+    name: 'Linu La\'neral',
+    race: 'Elf',
+    game: 'NWN',
+    startingLevel: {
+      Cleric: 5
+    },
+    strength: 16,
+    dexterity: 10,
+    constitution: 14,
+    intelligence: 10,
+    wisdom: 16,
+    charisma: 12,
+    portrait: 'nwn-linu.png',
+    baseHp: 38,
+    saves: {
+      fortitude: 4,
+      reflex: 1,
+      will: 4
+    },
+    skills: {
+      Concentration: 8,
+      Discipline: 4,
+      Listen: 1,
+    }
+  },
+   {
+    id: '16',
+    name: 'Linu La\'neral',
+    race: 'Elf',
+    game: 'NWN',
+    startingLevel: {
+      Cleric: 6
+    },
+    strength: 16,
+    dexterity: 10,
+    constitution: 14,
+    intelligence: 10,
+    wisdom: 16,
+    charisma: 12,
+    portrait: 'nwn-linu.png',
+    baseHp: 42,
+    saves: {
+      fortitude: 5,
+      reflex: 2,
+      will: 5
+    },
+    skills: {
+      Concentration: 8,
+      Discipline: 4,
+      Listen: 1,
+      Spot: 1
+    }
+  }
   ]
 }
