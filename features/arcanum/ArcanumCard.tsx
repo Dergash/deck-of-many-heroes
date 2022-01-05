@@ -33,7 +33,7 @@ export function ArcanumCard({ hero }: ArcanumCardProps) {
                 <span>
                     Adjust level:
                 </span>
-                <input type="range" min="1" max="50" value={level} onChange={handleLevelChange} />
+                <input type="range" min={hero.startingLevel} max="50" value={level} onChange={handleLevelChange} />
             </div>
             <hr />
             <span>
