@@ -246,6 +246,34 @@ export function getHeroes(): AnyHero[] {
       Listen: 1,
       Spot: 1
     }
+  },
+  {
+   id: '17',
+   name: 'Linu La\'neral',
+   race: 'Elf',
+   game: 'NWN',
+   startingLevel: {
+     Cleric: 7
+   },
+   strength: 16,
+   dexterity: 10,
+   constitution: 14,
+   intelligence: 10,
+   wisdom: 16,
+   charisma: 12,
+   portrait: 'nwn-linu.png',
+   baseHp: 55,
+   saves: {
+     fortitude: 5,
+     reflex: 2,
+     will: 5
+   },
+   skills: {
+     Concentration: 10,
+     Discipline: 4,
+     Listen: 1,
+     Spot: 1
+   }
   }
   ]
 }
