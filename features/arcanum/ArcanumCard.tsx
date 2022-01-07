@@ -1,6 +1,5 @@
 import React, {useState, FormEvent} from 'react'
-import { ArcanumHero, Hero } from '../../types/types'
-import { levelProgression } from './ruleset'
+import { levelProgression, ArcanumHero } from './ruleset'
 import styles from './ArcanumCard.module.css'
 
 export interface ArcanumCardProps {

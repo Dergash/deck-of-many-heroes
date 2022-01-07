@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { AnyHero } from '../../types/types'
+import { AnyHero } from '../../types/baseTypes'
 
 type Data = AnyHero[]
 

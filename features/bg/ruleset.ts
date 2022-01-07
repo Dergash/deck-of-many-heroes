@@ -1,3 +1,5 @@
+import { Hero } from '../../types/baseTypes'
+
 export type Bg1HeroClass = 'Fighter'
     | 'Thief'
     | 'Cleric'
@@ -19,4 +21,22 @@ export type Bg1Proficiency = Partial<{
 
 export type Bg2Proficiency = {
     // todo
+}
+
+export interface BgHero extends Hero {
+    game: 'BG1' | 'BG1: ToSC' | 'BG2' | 'BG2: SoA' | 'BG2: ToB' | 'BG: EE' | 'BG: SoD' | 'BG2: EE',
+    startingXp: number
+    proficiencies: Bg1Proficiency | Bg2Proficiency
+}
+
+export interface Bg1Hero extends BgHero {
+    proficiencies: Bg1Proficiency
+}
+
+export interface Bg2Hero extends BgHero {
+    proficiencies: Bg2Proficiency
+}
+
+export function isBgHero(hero: Hero): hero is BgHero {
+    return ['BG1', 'BG1: ToSC', 'BG2', 'BG2: SoA', 'BG2: ToB', 'BG: EE', 'BG: SoD', 'BG2: EE'].includes(hero.game)
 }

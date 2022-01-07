@@ -1,4 +1,4 @@
-import { Hero } from '../../types/types'
+import { Hero } from '../../types/baseTypes'
 
 export interface NwnHero extends Hero {
     startingLevel: Partial<Record<NwnClass, number>>
@@ -15,6 +15,10 @@ export interface NwnHero extends Hero {
     }
     baseHp: number
     skills: Partial<Record<NwnSkill, number>>
+}
+
+export function isNwnHero(hero: Hero): hero is NwnHero {
+    return hero.game === 'NWN'
 }
 
 export type NwnClass = 'Fighter'

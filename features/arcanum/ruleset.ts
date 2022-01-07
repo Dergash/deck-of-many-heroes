@@ -1,3 +1,13 @@
+import { Hero } from '../../types/baseTypes'
+
+export interface ArcanumHero extends Hero {
+    game: 'Arcanum'
+    startingLevel: number
+}
+
+export function isArcanumHero(hero: Hero): hero is ArcanumHero {
+    return hero.game === 'Arcanum'
+}
 
 export const levelProgression: Record<number, number> = {
     1: 0,

@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react'
-import { Bg2Hero, Bg1Hero } from '../../types/types'
+import { Bg2Hero, Bg1Hero } from './ruleset'
 import cn from '../../styles/cn'
 import styles from './BGCard.module.css'
 

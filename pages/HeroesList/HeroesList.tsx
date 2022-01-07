@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react'
-import { BgHero, Hero, isArcanumHero, isBgHero, isNwnHero } from '../../types/types'
-import { ArcanumCard } from '../../features/arcanum/ArcanumCard'
-import { BGCard } from '../../features/bg/BGCard'
+import { Hero } from '../../types/baseTypes'
+import { BgHero, isBgHero, BGCard } from '../../features/bg'
+import { isArcanumHero, ArcanumCard } from '../../features/arcanum'
+import { isNwnHero, NwnHero, NeverwinterCard } from '../../features/nwn'
 import styles from './HeroesList.module.css'
-import { NwnHero } from '../../features/nwn/ruleset'
-import { NeverwinterCard } from '../../features/nwn/NeverwinterCard'
 
 export interface HeroesListProps {
     heroes: Hero[]
