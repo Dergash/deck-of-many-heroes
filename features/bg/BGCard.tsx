@@ -24,7 +24,7 @@ export function BGCard({ hero, disabled }: BGCardProps) {
                 {card.name}
             </h2>
         </aside>
-        <div className={styles.info}>
+        <aside className={styles.mock} />
             <span className={styles.game}>
                 {card.game}
             </span>
@@ -42,12 +42,14 @@ export function BGCard({ hero, disabled }: BGCardProps) {
                 />
             </div>
             <hr />
-            <span>
-                Race: {card.race}
-            </span>
-            <span>
-                Starting XP: {card.startingXp}
-            </span>
+            <div className={styles.info}>
+                <div>
+                    Race: {card.race}
+                </div>
+                <div>
+                    Starting XP: {card.startingXp}
+                </div>
+            </div>
             <div className={styles.proficiencies}>
                 Proficiencies:
                 <ul className={styles.proficienciesList}>
@@ -58,6 +60,6 @@ export function BGCard({ hero, disabled }: BGCardProps) {
                     })}
                 </ul>
             </div>
-        </div>
+            <hr style={{ clear: 'both', marginTop: '16px' }} />
     </div>
 }

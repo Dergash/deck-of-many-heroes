@@ -22,7 +22,7 @@ export function NeverwinterCard({ hero }: NeverwinterCardProps) {
                 {card.name}
             </h2>
         </aside>
-        <div className={styles.info}>
+        <aside className={styles.mock} />
             <span className={styles.game}>
                 {card.game}
             </span>
@@ -33,6 +33,7 @@ export function NeverwinterCard({ hero }: NeverwinterCardProps) {
                 <input type="range" min="0" max={hero.length - 1} value={cardIndex} onChange={handleCardChange} />
             </div>
             <hr />
+            <div className={styles.info}>
             <span>
                 Race: {card.race}
             </span>
@@ -52,6 +53,7 @@ export function NeverwinterCard({ hero }: NeverwinterCardProps) {
                 Skills: {getDisplayedSkills(card.skills)}
             </span>
         </div>
+        <hr style={{ clear: 'both', marginTop: '16px '}} />
     </div>
 }
 

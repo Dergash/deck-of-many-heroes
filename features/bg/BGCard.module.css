@@ -1,16 +1,24 @@
 .container {
-    display: flex;
+    background: white;
+    color: var(--secondaryText);
+    margin-left: 16px;
+    margin-top: 16px;
+    position: relative;
+    min-width: 320px;
+    min-height: 220px;
+    padding: 16px;
+    padding-right: 24px;
+}
+
+.mock {
+    height: 220px;
+    width: 110px;
+    float: left;
 }
 
 .info {
-    display: flex;
-    flex-grow: 1;
+    display: inline-flex;
     flex-direction: column;
-    padding: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    background: white;
-    color: var(--secondaryText);
 }
 
 .disabled {
@@ -30,6 +38,9 @@
 .sider {
     background: var(--primaryDark);
     max-width: 110px;
+    left: -16px;
+    top: -16px;
+    position: absolute;
 }
 
 .name {
@@ -40,6 +51,7 @@
     margin-top: 4px;
     text-align: center;
     white-space: normal;
+    color: white;
 }
 
 .game {
@@ -48,6 +60,7 @@
 
 .proficiencies {
     margin-top: 8px;
+    clear: both;
 }
 
 .proficienciesList {

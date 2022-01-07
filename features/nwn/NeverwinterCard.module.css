@@ -1,5 +1,19 @@
 .container {
-    display: flex;
+    background: white;
+    color: var(--secondaryText);
+    margin-left: 16px;
+    margin-top: 16px;
+    position: relative;
+    min-width: 320px;
+    min-height: 220px;
+    padding: 16px;
+    padding-right: 24px;
+}
+
+.mock {
+    height: 220px;
+    width: 110px;
+    float: left;
 }
 
 .info {
@@ -22,6 +36,9 @@
 .sider {
     background: var(--primaryDark);
     max-width: 128px;
+    position: absolute;
+    left: -16px;
+    top: -16px;
 }
 
 .name {
@@ -32,6 +49,7 @@
     margin-top: 4px;
     text-align: center;
     white-space: normal;
+    color: white;
 }
 
 .levelRange {
