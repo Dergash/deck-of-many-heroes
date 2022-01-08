@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { BgHero } from '../../features/bg'
 import { AnyHero } from '../../types/baseTypes'
 
 type Data = AnyHero[]
@@ -11,55 +12,66 @@ export default function handler(
   res.status(200).json(getHeroes())
 }
 
+const baseBg1Imoen: BgHero = {
+  id: '1', // todo: filenames
+  startingXp: 9,
+  name: 'Imoen',
+  race: 'Human',
+  game: 'BG1',
+  hp: 6,
+  portrait: 'bg1-imoen.png',
+  proficiencies: {
+    Bow: 1,
+    'Small Sword': 1
+  },
+  lore: 3,
+  skills: {
+    Stealth: 10,
+    'Find Traps': 20
+  }
+}
+
 export function getHeroes(): AnyHero[] {
   return [
     {
-      id: '1', // todo: filenames
-      name: 'Imoen',
-      race: 'Human',
-      game: 'BG1',
-      startingXp: 9,
-      portrait: 'bg1-imoen.png',
-      proficiencies: {
-        Bow: 1,
-        'Small Sword': 1
-      }
+      ...baseBg1Imoen,
     },
     {
+      ...baseBg1Imoen,
       id: '2',
-      name: 'Imoen',
-      race: 'Human',
-      game: 'BG1',
-      startingXp: 1304 ,
-      portrait: 'bg1-imoen.png',
-      proficiencies: {
-        Bow: 1,
-        'Small Sword': 1
+      startingXp: 1304,
+      hp: 10,
+      lore: 6,
+      skills: {
+        Stealth: 20,
+        'Find Traps': 30
       }
     },
     {
+      ...baseBg1Imoen,
       id: '3',
-      name: 'Imoen',
-      race: 'Human',
-      game: 'BG1',
       startingXp: 5124,
-      portrait: 'bg1-imoen.png',
-      proficiencies: {
-        Bow: 1,
-        'Small Sword': 1
+      hp: 21,
+      lore: 12,
+      skills: {
+        Stealth: 40,
+        'Find Traps': 50
       }
     },
     {
+      ...baseBg1Imoen,
       id: '4',
-      name: 'Imoen',
-      race: 'Human',
-      game: 'BG1',
       startingXp: 20636,
-      portrait: 'bg1-imoen.png',
+      hp: 31,
       proficiencies: {
         Bow: 1,
         'Small Sword': 1,
         "Blunt Weapons": 1
+      },
+      lore: 18,
+      skills: {
+        'Move Silently': 60,
+        'Find Traps': 70
       }
     },
     {
@@ -77,7 +89,9 @@ export function getHeroes(): AnyHero[] {
       game: 'BG2: SoA',
       startingXp: 400000,
       portrait: 'bg2-imoen.jpg',
-      proficiencies: {}
+      proficiencies: {},
+      hp: 57,
+      lore: 31
     },
     {
       id: '7',
@@ -86,7 +100,9 @@ export function getHeroes(): AnyHero[] {
       game: 'BG2: SoA',
       startingXp: 1200000,
       portrait: 'bg2-imoen.jpg',
-      proficiencies: {}
+      proficiencies: {},
+      hp: 69,
+      lore: 46
     },
    {
      id: '8',
@@ -116,7 +132,9 @@ export function getHeroes(): AnyHero[] {
        'Spiked Weapons': 1,
        'Axe': 1
      },
-     disabled: true
+     disabled: true,
+     hp: 10,
+     lore: 1
    },
    {
      id: '11',
@@ -129,7 +147,9 @@ export function getHeroes(): AnyHero[] {
         'Small Sword': 1,
         'Missile Weapons': 1
      },
-     disabled: true
+     disabled: true,
+     hp: 6,
+     lore: 10
    },
    {
     id: '11',
@@ -142,7 +162,9 @@ export function getHeroes(): AnyHero[] {
       'Blunt Weapons': 1,
       'Missile Weapons': 1
     },
-    disabled: true
+    disabled: true,
+    hp: 12,
+    lore: 2
    },
    {
      id: '12',
@@ -155,7 +177,9 @@ export function getHeroes(): AnyHero[] {
       'Blunt Weapons': 1,
       'Missile Weapons': 1
     },
-    disabled: true
+    disabled: true,
+    lore: 8,
+    hp: 17
    },
    {
      id: '13',

@@ -26,6 +26,14 @@ export type Bg2Proficiency = {
 export interface BgHero extends Hero {
     game: 'BG1' | 'BG1: ToSC' | 'BG2' | 'BG2: SoA' | 'BG2: ToB' | 'BG: EE' | 'BG: SoD' | 'BG2: EE',
     startingXp: number
+    hp: number
+    lore: number
+    skills?: Partial<{
+        'Open Locks': number
+        'Stealth': number
+        'Find Traps': number
+        'Pick Pockets': number
+    }>
     proficiencies: Bg1Proficiency | Bg2Proficiency
 }
 
