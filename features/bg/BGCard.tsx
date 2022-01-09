@@ -46,7 +46,13 @@ export function BGCard({ hero, disabled }: BGCardProps) {
                 Race: {card.race}
             </span>
             <span>
+                HP: {card.hp}
+            </span>
+            <span>
                 Starting XP: {card.startingXp}
+            </span>
+            <span>
+                Lore: {card.lore}
             </span>
             <div className={styles.proficiencies}>
                 Proficiencies:
