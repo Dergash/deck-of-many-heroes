@@ -48,3 +48,19 @@ export interface Bg2Hero extends BgHero {
 export function isBgHero(hero: Hero): hero is BgHero {
     return ['BG1', 'BG1: ToSC', 'BG2', 'BG2: SoA', 'BG2: ToB', 'BG: EE', 'BG: SoD', 'BG2: EE'].includes(hero.game)
 }
+
+/**
+ * TODO: race and dexterity modifiers; items?
+ * TODO: rename to mention thieving?
+ *
+ * @param hero
+ * @returns 
+ */
+export function getSkills(hero: BgHero) {
+    return hero ? {
+        'Open Locks': hero.skills?.['Open Locks'] ?? 0,
+        Stealth: hero.skills?.Stealth ?? 0,
+        'Find Traps': hero.skills?.['Find Traps'] ?? 0,
+        'Pick Pockets': hero.skills?.['Pick Pockets'] ?? 0
+    } : null
+}

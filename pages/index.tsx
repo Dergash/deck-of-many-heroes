@@ -7,6 +7,8 @@ import { getHeroes } from './api/heroes'
 import { observer } from 'mobx-react-lite'
 import { AnyHero } from '../types/baseTypes'
 import { StoreContext } from '../features/store/store'
+import { isBgHero } from '../features/bg'
+import { BGDetails } from '../features/bg/BGDetails'
 
 type HomePageProps = {
   heroes: AnyHero[]
@@ -15,6 +17,7 @@ type HomePageProps = {
 const Home = ({ heroes }: HomePageProps) => {
   
   const store = useContext(StoreContext)
+  const hero = heroes?.find(item => item.id === store.selectedCard)
 
   return (
     <div className={styles.container}>
@@ -28,8 +31,10 @@ const Home = ({ heroes }: HomePageProps) => {
         <HeroesList heroes={heroes} />
       </main>
 
-      { store.selectedCard &&
-        <aside />
+      { hero &&
+        <aside className={styles.details}>
+            {isBgHero(hero) && <BGDetails hero={hero} />}
+        </aside>
       }
     </div>
   )

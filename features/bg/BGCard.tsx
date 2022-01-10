@@ -13,7 +13,9 @@ export function BGCard({ hero, disabled, onClick }: BGCardProps) {
     const [cardIndex, setCardIndex] = useState(0)
     
     const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
-        setCardIndex(Number.parseInt(e.currentTarget.value, 10))
+        const newIndex = Number.parseInt(e.currentTarget.value, 10)
+        setCardIndex(newIndex)
+        onClick?.(hero[cardIndex].id)
     }
 
     const card = hero[cardIndex]
@@ -68,16 +70,6 @@ export function BGCard({ hero, disabled, onClick }: BGCardProps) {
             <span>
                 Lore: {card.lore}
             </span>
-            <div className={styles.proficiencies}>
-                Proficiencies:
-                <ul className={styles.proficienciesList}>
-                    {Object.entries(card.proficiencies).map(([proficiency, points]) => {
-                        return <li key={proficiency}>
-                            {proficiency}: {new Array(points).fill('○').join(' ')}
-                        </li>
-                    })}
-                </ul>
-            </div>
         </div>
     </div>
 }

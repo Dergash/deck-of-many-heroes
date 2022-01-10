@@ -30,8 +30,14 @@ export function HeroesList({ heroes }: HeroesListProps) {
                     disabled={bgDeck[0].disabled}
                     onClick={handleClick}
                 /> }
-                { arcanumCard && <ArcanumCard hero={arcanumCard} /> }
-                { nwnDeck && <NeverwinterCard hero={nwnDeck} />}
+                { arcanumCard && <ArcanumCard
+                    hero={arcanumCard}
+                    onClick={handleClick}
+                /> }
+                { nwnDeck && <NeverwinterCard
+                    hero={nwnDeck}
+                    onClick={handleClick}
+                />}
             </li>
         })}
     </ul>
