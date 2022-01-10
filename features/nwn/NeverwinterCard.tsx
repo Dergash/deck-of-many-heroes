@@ -1,12 +1,14 @@
 import React, { useState, FormEvent } from 'react'
+import cn from '../../styles/cn'
 import styles from './NeverwinterCard.module.css'
 import { NwnHero } from './ruleset'
 
 export interface NeverwinterCardProps {
     hero: NwnHero[]
+    onClick?: (id: string) => void
 }
 
-export function NeverwinterCard({ hero }: NeverwinterCardProps) {
+export function NeverwinterCard({ hero, onClick }: NeverwinterCardProps) {
     const [cardIndex, setCardIndex] = useState(0)
     
     const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
@@ -15,7 +17,14 @@ export function NeverwinterCard({ hero }: NeverwinterCardProps) {
 
     const card = hero[cardIndex]
 
-    return <div className={styles.container}>
+    const handleCardClick = () => {
+        onClick?.(card.id)
+    }
+
+    return <div
+        className={cn(styles.container, { [styles.clickable]: Boolean(onClick) }) }
+        onClick={handleCardClick}
+    >
         <aside className={styles.sider}>
             <img src={`/${hero[cardIndex].portrait}`} width="128px" height="200px" />
             <h2 className={styles.name}>

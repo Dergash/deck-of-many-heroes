@@ -6,9 +6,10 @@ import styles from './BGCard.module.css'
 export interface BGCardProps {
     hero: Bg1Hero[] | Bg2Hero[]
     disabled?: boolean
+    onClick?: (id: string) => void
 }
 
-export function BGCard({ hero, disabled }: BGCardProps) {
+export function BGCard({ hero, disabled, onClick }: BGCardProps) {
     const [cardIndex, setCardIndex] = useState(0)
     
     const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
@@ -17,7 +18,20 @@ export function BGCard({ hero, disabled }: BGCardProps) {
 
     const card = hero[cardIndex]
 
-    return <div className={cn(styles.container, { [ styles.disabled]: disabled!! })} >
+    const handleCardClick = () => {
+        onClick?.(card.id)
+    }
+
+    return <div
+        className={cn(
+            styles.container,
+            {
+                [styles.disabled]: disabled!!,
+                [styles.clickable]: Boolean(onClick)
+            }
+        )}
+        onClick={!disabled ? handleCardClick : undefined}
+    >
         <aside className={styles.sider}>
             <img src={`/${hero[cardIndex].portrait}`} width="110px" height="170px" className={disabled ? styles.disabledImg : undefined} />
             <h2 className={styles.name}>

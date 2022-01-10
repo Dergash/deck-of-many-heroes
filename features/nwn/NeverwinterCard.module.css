@@ -13,6 +13,10 @@
     color: var(--secondaryText);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 960px) {
     .info {
         min-width: 256px;

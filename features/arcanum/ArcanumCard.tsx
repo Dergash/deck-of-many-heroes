@@ -1,12 +1,14 @@
 import React, {useState, FormEvent} from 'react'
 import { levelProgression, ArcanumHero } from './ruleset'
 import styles from './ArcanumCard.module.css'
+import cn from '../../styles/cn'
 
 export interface ArcanumCardProps {
     hero: ArcanumHero
+    onClick?: (id: string) => void
 } 
 
-export function ArcanumCard({ hero }: ArcanumCardProps) {
+export function ArcanumCard({ hero, onClick }: ArcanumCardProps) {
     const startingXp = levelProgression[hero.startingLevel]
     const [xp, setXp] = useState(startingXp)
     const level = Object.entries(levelProgression).find(([key]) => levelProgression[Number.parseInt(key, 10)] === xp)?.[0]
@@ -17,7 +19,14 @@ export function ArcanumCard({ hero }: ArcanumCardProps) {
         setXp(newXp)
     }
 
-    return <div className={styles.container}>
+    const handleCardClick = () => {
+        onClick?.(hero.id)
+    }
+
+    return <div
+        className={cn(styles.container, { [styles.clickable]: Boolean(onClick) }) }
+        onClick={handleCardClick}
+    >
         <header className={styles.header}>
             <img src={`/${hero.portrait}`} width="64px" height="64px" />
             <h2 className={styles.name}>

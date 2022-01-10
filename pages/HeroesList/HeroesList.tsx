@@ -1,9 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { Hero } from '../../types/baseTypes'
 import { BgHero, isBgHero, BGCard } from '../../features/bg'
 import { isArcanumHero, ArcanumCard } from '../../features/arcanum'
 import { isNwnHero, NwnHero, NeverwinterCard } from '../../features/nwn'
 import styles from './HeroesList.module.css'
+import { StoreContext } from '../../features/store/store'
+import { action } from 'mobx'
 
 export interface HeroesListProps {
     heroes: Hero[]
@@ -11,6 +13,11 @@ export interface HeroesListProps {
 
 export function HeroesList({ heroes }: HeroesListProps) {
     const groupedHeroes = useMemo(() => getHeroesDeck(heroes), [heroes])
+    const store = useContext(StoreContext)
+
+    const handleClick = action((id: string) => {
+        store.selectedCard = id
+    })
     
     return <ul className={styles.container}>
         {Object.entries(groupedHeroes)?.map(([name, deck]) => {
@@ -18,7 +25,11 @@ export function HeroesList({ heroes }: HeroesListProps) {
             const bgDeck = isBgHero(deck[0]) && deck as BgHero[]
             const nwnDeck =isNwnHero(deck[0]) && deck as NwnHero[]
             return <li key={name} className={styles.card}>
-                { bgDeck && <BGCard hero={bgDeck} disabled={bgDeck[0].disabled} /> }
+                { bgDeck && <BGCard
+                    hero={bgDeck}
+                    disabled={bgDeck[0].disabled}
+                    onClick={handleClick}
+                /> }
                 { arcanumCard && <ArcanumCard hero={arcanumCard} /> }
                 { nwnDeck && <NeverwinterCard hero={nwnDeck} />}
             </li>

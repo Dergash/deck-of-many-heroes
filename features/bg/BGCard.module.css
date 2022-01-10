@@ -13,6 +13,10 @@
     color: var(--secondaryText);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .disabled {
     filter: opacity(0.65);
 }

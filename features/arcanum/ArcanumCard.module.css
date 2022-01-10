@@ -4,6 +4,10 @@
     min-width: 256px;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .header {
     background-color: var(--primaryDark);
     display: flex;
