@@ -10,12 +10,13 @@ export interface NeverwinterCardProps {
 
 export function NeverwinterCard({ hero, onClick }: NeverwinterCardProps) {
     const [cardIndex, setCardIndex] = useState(0)
-    
-    const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
-        setCardIndex(Number.parseInt(e.currentTarget.value, 10))
-    }
-
     const card = hero[cardIndex]
+
+    const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
+        const newIndex = Number.parseInt(e.currentTarget.value, 10)
+        setCardIndex(newIndex)
+        onClick?.(hero[newIndex].id)
+    }
 
     const handleCardClick = () => {
         onClick?.(card.id)
