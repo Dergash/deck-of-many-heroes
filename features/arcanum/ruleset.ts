@@ -3,6 +3,63 @@ import { Hero } from '../../types/baseTypes'
 export interface ArcanumHero extends Hero {
     game: 'Arcanum'
     startingLevel: number
+    spells?: ArcanumSpell[]
+    strength: number
+    constitution: number
+    dexterity: number
+    beauty: number
+    intelligence: number
+    willpower: number
+    perception: number
+    charisma: number
+}
+
+export type MagicCollege = 'Conveyance'
+    | 'Divination'
+    | 'Air'
+    | 'Earth'
+    | 'Fire'
+    | 'Water'
+    | 'Force'
+    | 'Mental'
+    | 'Meta'
+    | 'Morph'
+    | 'Nature'
+    | 'Black Necromantic'
+    | 'White Necrcomantic'
+    | 'Phantasm'
+    | 'Summoning'
+    | 'Temporal'
+
+export type ArcanumSpell = {
+    /**
+     * Minimum character level to cast this spell
+     */
+    level: number
+    /**
+     * Rank of the spell in college
+     */
+    rank: 1 | 2 | 3 | 4 | 5
+    /**
+     * Minimum character willpower to cast this spell
+     */
+    willpower: number
+    /**
+     * Base energy consumption (with aptitude zero) to cast
+     */
+    energy: number
+    /**
+     * Base energy consumption to support this spell (each 10 seconds)
+     */
+    energyConsumption?: number
+    /**
+     * Name of the spell
+     */
+    name: string
+    /**
+     * Magic college including this spell
+     */
+    college: MagicCollege
 }
 
 export function isArcanumHero(hero: Hero): hero is ArcanumHero {

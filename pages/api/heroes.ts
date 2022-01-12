@@ -80,7 +80,15 @@ export function getHeroes(): AnyHero[] {
       race: 'Human',
       game: 'Arcanum',
       startingLevel: 1,
-      portrait: 'arcanum-virgil.png'
+      portrait: 'arcanum-virgil.png',
+      strength: 9,
+      constitution: 8,
+      dexterity: 8,
+      beauty: 8,
+      intelligence: 7,
+      willpower: 8,
+      perception: 8,
+      charisma: 8
     },
     {
       id: '6',
@@ -110,7 +118,15 @@ export function getHeroes(): AnyHero[] {
      race: 'Half-Ogre',
      game: 'Arcanum',
      startingLevel: 2,
-     portrait: 'sogg.png'
+     portrait: 'sogg.png',
+     strength: 15,
+     constitution: 8,
+     dexterity: 10,
+     beauty: 7,
+     intelligence: 3,
+     willpower: 8,
+     perception: 8,
+     charisma: 8
    },
    {
      id: '9',
@@ -118,7 +134,15 @@ export function getHeroes(): AnyHero[] {
      race: 'Half-elf',
      game: 'Arcanum',
      portrait: 'NPCJay.bmp',
-     startingLevel: 5
+     startingLevel: 5,
+     strength: 8,
+     constitution: 8,
+     dexterity: 9,
+     beauty: 9,
+     intelligence: 9,
+     willpower: 8,
+     perception: 8,
+     charisma: 8
    },
    {
      id: '10',
@@ -187,7 +211,15 @@ export function getHeroes(): AnyHero[] {
      race: 'Human',
      game: 'Arcanum',
      portrait: 'arcanum-geoffrey.png',
-     startingLevel: 12
+     startingLevel: 12,
+     strength: 6,
+     constitution: 10,
+     dexterity: 8,
+     beauty: 8,
+     intelligence: 16,
+     willpower: 13,
+     perception: 8,
+     charisma: 8
    },
    {
      id: '14',
