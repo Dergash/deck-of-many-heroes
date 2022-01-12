@@ -1,13 +1,14 @@
 import React from 'react'
 import { NwnHero } from './ruleset'
 import styles from './NeverwinterDetails.module.css'
+import DetailsCard from '../ui/DetailsCard'
 
 export interface NeverwinterDetailsProps {
     hero: NwnHero
 }
 
 export function NeverwinterDetails({ hero }: NeverwinterDetailsProps) {
-    return <div className={styles.container}>
+    return <DetailsCard>
         <img src={hero.portrait} className={styles.portrait} />
         <h2 className={styles.name}>{hero.name}</h2>
         <div className={styles.info}>
@@ -68,5 +69,5 @@ export function NeverwinterDetails({ hero }: NeverwinterDetailsProps) {
                 </ul>
             </div>
         </div>
-    </div>
+    </DetailsCard>
 }

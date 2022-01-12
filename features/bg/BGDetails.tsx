@@ -2,6 +2,7 @@ import React from 'react'
 import { BgHero } from './ruleset'
 import styles from './BGDetails.module.css'
 import { getSkills } from '.'
+import DetailsCard from '../ui/DetailsCard'
 
 export interface BGDetailsProps {
     hero: BgHero
@@ -11,7 +12,7 @@ export function BGDetails({ hero }: BGDetailsProps) {
     
     const skills = getSkills(hero)
 
-    return <div className={styles.container}>
+    return <DetailsCard>
         <img src={hero.portrait} className={styles.portrait} />
         <h2 className={styles.name}>{hero.name}</h2>
         <div className={styles.info}>
@@ -44,5 +45,5 @@ export function BGDetails({ hero }: BGDetailsProps) {
                 </ul>
             </div>
         }
-    </div>
+    </DetailsCard>
 }
