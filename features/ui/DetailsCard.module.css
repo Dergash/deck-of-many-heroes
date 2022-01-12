@@ -2,6 +2,37 @@
     background: white;
     display: flex;
     flex-direction: column;
-    padding: 16px;
     color: var(--secondaryText);
+    flex-shrink: 0;
+    min-width: 384px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+@media screen and (max-width: 959px) {
+    .container {
+        display: none;
+    }
+}
+
+.header {
+    background: var(--primaryDark);
+    min-height: 64px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
 }

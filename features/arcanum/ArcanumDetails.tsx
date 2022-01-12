@@ -8,8 +8,7 @@ export interface ArcanumDetailsProps {
 }
 
 export function ArcanumDetails({ hero }: ArcanumDetailsProps) {
-    return <DetailsCard>
+    return <DetailsCard name={hero.name}>
         <img src={hero.portrait} className={styles.portrait} />
-        <h2 className={styles.name}>{hero.name}</h2>
     </DetailsCard>
 }

@@ -1,11 +1,5 @@
 .portrait {
     align-self: center;
     margin-top: 16px;
-}
-
-.name {
-    align-self: center;
-    font-size: 2em;
-    margin: 0;
-    margin-top: 8px;
+    margin-bottom: 16px;
 }

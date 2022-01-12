@@ -8,9 +8,8 @@ export interface NeverwinterDetailsProps {
 }
 
 export function NeverwinterDetails({ hero }: NeverwinterDetailsProps) {
-    return <DetailsCard>
+    return <DetailsCard name={hero.name}>
         <img src={hero.portrait} className={styles.portrait} />
-        <h2 className={styles.name}>{hero.name}</h2>
         <div className={styles.info}>
             <span>Race: {hero.race}</span>
             <ul className={styles.list}>

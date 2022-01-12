@@ -2,16 +2,3 @@
     padding: 16px;
     display: flex;
 }
-
-.details {
-    flex-shrink: 0;
-    min-width: 480px;
-    margin-left: 32px;
-    margin-right: 32px;
-}
-
-@media screen and (max-width: 959px) {
-    .details {
-        display: none;
-    }
-}
