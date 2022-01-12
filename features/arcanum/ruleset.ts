@@ -14,6 +14,8 @@ export interface ArcanumHero extends Hero {
     charisma: number
 }
 
+export type PrimaryStat = 'Strength' | 'Constitution' | 'Dexterity' | 'Beauty' | 'Intelligence' | 'Willpower' | 'Perception' | 'Charisma'
+
 export type MagicCollege = 'Conveyance'
     | 'Divination'
     | 'Air'
@@ -31,6 +33,22 @@ export type MagicCollege = 'Conveyance'
     | 'Summoning'
     | 'Temporal'
 
+export type MagicCollegeRank = 1 | 2 | 3 | 4 | 5
+
+export type TechnologicalDisciplineRank = 1 | 2 | 3 | 4 | 5 | 6 | 7
+
+export type ArcanumSkill = {
+    name: ArcanumSkillName
+    group: ArcanumSkillGroup
+}
+
+export type ArcanumSkillName = 'Bow' | 'Dodge' | 'Melee' | 'Throwing'
+    | 'Backstab' | 'Pick Pocket' | 'Prowling' | 'Spot Traps'
+    | 'Gambling' | 'Haggle' | 'Heal' | 'Persuasion'
+    | 'Repair' | 'Firearms' | 'Pick Locks' | 'Disarm Traps'
+
+export type ArcanumSkillGroup = 'Combat' | 'Thieving' | 'Social' | 'Technological'
+
 export type ArcanumSpell = {
     /**
      * Minimum character level to cast this spell
@@ -39,7 +57,7 @@ export type ArcanumSpell = {
     /**
      * Rank of the spell in college
      */
-    rank: 1 | 2 | 3 | 4 | 5
+    rank: MagicCollegeRank
     /**
      * Minimum character willpower to cast this spell
      */
@@ -62,8 +80,28 @@ export type ArcanumSpell = {
     college: MagicCollege
 }
 
+export type TechnologicalDiscipline = 'Herbology'
+    | 'Chemistry'
+    | 'Electric'
+    | 'Explosives'
+    | 'Gun Smithy'
+    | 'Mechanical'
+    | 'Smithy'
+    | 'Therapeutics'
+
 export function isArcanumHero(hero: Hero): hero is ArcanumHero {
     return hero.game === 'Arcanum'
+}
+
+export type LevelingSchemeItem = Record<MagicCollege, MagicCollegeRank>
+    | Record<TechnologicalDiscipline, TechnologicalDisciplineRank>
+    | Record<keyof ArcanumSkill['name'], number>
+    | Record<PrimaryStat, number>
+
+export type LevelingScheme = LevelingSchemeItem[]
+
+export function applyLevelingScheme(hero: ArcanumHero, scheme: LevelingSchemeItem) {
+    // todo
 }
 
 export const levelProgression: Record<number, number> = {
