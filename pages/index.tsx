@@ -11,6 +11,8 @@ import { isBgHero } from '../features/bg'
 import { BGDetails } from '../features/bg/BGDetails'
 import { isNwnHero } from '../features/nwn'
 import { NeverwinterDetails } from '../features/nwn/NeverwinterDetails'
+import { isArcanumHero } from '../features/arcanum'
+import { ArcanumDetails } from '../features/arcanum/ArcanumDetails'
 
 type HomePageProps = {
   heroes: AnyHero[]
@@ -37,6 +39,7 @@ const Home = ({ heroes }: HomePageProps) => {
         <aside className={styles.details}>
             {isBgHero(hero) && <BGDetails hero={hero} />}
             {isNwnHero(hero) && <NeverwinterDetails hero={hero} />}
+            {isArcanumHero(hero) && <ArcanumDetails hero={hero} />}
         </aside>
       }
     </div>
