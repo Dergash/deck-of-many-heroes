@@ -12,3 +12,11 @@
         width: 100%;
      }
 }
+
+.card {
+    filter: opacity(0.9);
+}
+
+.card:hover, .card:focus, .card:active {
+    filter: opacity(1);
+}
