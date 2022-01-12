@@ -15,7 +15,7 @@ export function BGCard({ hero, disabled, onClick }: BGCardProps) {
     const handleCardChange = (e: FormEvent<HTMLInputElement>) => {
         const newIndex = Number.parseInt(e.currentTarget.value, 10)
         setCardIndex(newIndex)
-        onClick?.(hero[cardIndex].id)
+        onClick?.(hero[newIndex].id)
     }
 
     const card = hero[cardIndex]
