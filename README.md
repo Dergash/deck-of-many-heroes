@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deck of Many Heroes
 
-## Getting Started
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=deck-of-many-heroes.vercel.app)](https://deck-of-many-heroes.vercel.app)
 
-First, run the development server:
+**Note**: Work in Progress
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Are you ever found yourself wondering at which level you should recruit Coran to keep his pointy ears from wasting his precious thieving points on Pick Pockets?  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or maybe you don't wanna miss out on Haer'Dalis long sword specialisation available only if you recruit him after level 15?  
+So sweet and forbidden.  
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Or maybe you are doing [Master of all Skills Arcanum walkthrough]([https://steamcommunity.com/sharedfiles/filedetails/?id=818649577) and need to know at which levels Jayna Styles opens up her shop with her amazing herbal remedies?  
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Maybe you just a little bit confused or even depressed in front of various game editions and miriads of opinionated fixpacks changing your potential followers, making it difficult to track the effective values via dozens wiki pages and obsolete guides?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Well then, this simple application intends to help you plan your ideal walkthrough of Baldur's Gate, Arcanum or Neverwinter Nights by providing full dossier on each and every possible follower, including their leveling scheme for all popular versions and fixpacks!
 
-## Learn More
+# Titles and fixpacks I plan to include
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* [Baldur's Gate](https://en.wikipedia.org/wiki/Baldur%27s_Gate_(video_game))
+* [Baldur's Gate: Tales of the Sword Coast](https://en.wikipedia.org/wiki/Baldur%27s_Gate:_Tales_of_the_Sword_Coast)
+* [Baldur's Gate 2: Shadows of Amn](https://en.wikipedia.org/wiki/Baldur%27s_Gate_II:_Shadows_of_Amn)
+* [Baldur's Gate 2: Throne of Bhaal](https://en.wikipedia.org/wiki/Baldur%27s_Gate_II:_Throne_of_Bhaal)
+* [Baldur's Gate: Enhanced Edition](https://www.beamdog.com/games/baldurs-gate-enhanced)
+* [Baldur's Gate 2: Enhanced Edition](https://www.beamdog.com/games/baldurs-gate-2-enhanced)
+* [Baldur's Gate TuTu](https://www.pocketplane.net/bg1tutu)
+* [Baldur's Gate Trilogy](http://www.spellholdstudios.net/ie/bgt)
+* [Baldur's Gate Dudleyville fix](https://forgottenwars.com/dudleyfix/fixpacks.htm)
+* [Neverwinter Nights: Diamond Edition](https://www.bioware.com/games/#:~:text=THE%20OLD%20REPUBLIC%E2%84%A2-,NEVERWINTER%20NIGHTS,-Choose%20Your%20Adventure)
+* [Neverwinter Nights: Enhanced Edition](https://www.beamdog.com/games/neverwinter-nights-enhanced)
+* [Arcanum: Of Steamworks and Magick Obscura](https://en.wikipedia.org/wiki/Arcanum:_Of_Steamworks_and_Magick_Obscura)
+* [Unofficial Arcanum Patch](https://terra-arcanum.com/drog/uap.html)
+* [Arcanum: Multiverse Edition](https://steamcommunity.com/sharedfiles/filedetails/?id=760410053)
