@@ -4,7 +4,8 @@ import { geoffrey, jayna, sogg, virgil } from '../../features/arcanum/heroes'
 import {
   garrick,
   imoen1, imoen2, imoen4, imoen6, imoenBg2_1200, imoenBg2_400,
-  minsc, tiax, viconi
+  minsc, minsc2, minsc4, minsc6,
+  tiax, viconi
 } from '../../features/bg'
 import { linu4, linu5, linu6, linu7 } from '../../features/nwn/heroes'
 import { AnyHero } from '../../types/baseTypes'
@@ -30,6 +31,9 @@ export function getHeroes(): AnyHero[] {
     sogg,
     jayna,
     minsc,
+    minsc2,
+    minsc4,
+    minsc6,
     garrick,
     viconi,
     tiax,
