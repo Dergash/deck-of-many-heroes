@@ -1,4 +1,5 @@
 import React, { memo, ReactNode } from 'react'
+import cn from '../../styles/cn'
 import styles from './DetailsCard.module.css'
 
 export interface DetailsCardProps {
@@ -14,7 +15,9 @@ export interface DetailsCardProps {
 export function DetailsCard({ name, children }: DetailsCardProps) {
     return <div className={styles.container}>
         <header className={styles.header}>
-            <h2 className={styles.name}>{name}</h2>
+            <h2 className={cn(styles.name, { [styles.small]: name.length > 20 })}>
+                {name}
+            </h2>
         </header>
         <hr />
         <section className={styles.content}>
