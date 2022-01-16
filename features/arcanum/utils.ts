@@ -27,7 +27,7 @@ export function parseLevelingItem(item: string): LevelingSchemeItem {
     } else if (ArcanumSkillCodes[skillCode as keyof typeof ArcanumSkillCodes]) {
         return {
             type: 'skill',
-            skill: parameter as ArcanumSkillName,
+            skill: ArcanumSkillCodes[skillCode as keyof typeof ArcanumSkillCodes] as ArcanumSkillName,
             rank
         }
     }

@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
-import { ArcanumHero, ArcanumSpell, MagicCollege, levelProgression } from './ruleset'
+import { ArcanumHero, ArcanumSpell, MagicCollege, levelProgression,
+    ArcanumSkillGroupSet, ArcanumSkillSet,
+    ArcanumCombatSkills, ArcanumSocialSkills, ArcanumTechnologicalSkills, ArcanumThievingSkills
+} from './ruleset'
 import { DetailsCard } from '../ui/DetailsCard'
 import styles from './ArcanumDetails.module.css'
 import { observer } from 'mobx-react-lite'
 import { StoreContext } from '../store/store'
 import { applyLevelingScheme } from './utils'
-import { ArcanumCombatSkills, ArcanumSkill, ArcanumSkillGroup, ArcanumSkillGroupSet, ArcanumSkillName, ArcanumSkillSet } from '.'
-
 export interface ArcanumDetailsProps {
     hero: ArcanumHero
 }
@@ -104,6 +105,24 @@ function groupSkills(skills: ArcanumSkillSet) {
         if (ArcanumCombatSkills.includes(skill as typeof ArcanumCombatSkills[number])) {
             result.Combat = {
                 ...result.Combat,
+                [skill]: rank
+            }
+        }
+        if (ArcanumSocialSkills.includes(skill as typeof ArcanumSocialSkills[number])) {
+            result.Social = {
+                ...result.Social,
+                [skill]: rank
+            }
+        }
+        if (ArcanumThievingSkills.includes(skill as typeof ArcanumThievingSkills[number])) {
+            result.Thieving = {
+                ...result.Thieving,
+                [skill]: rank
+            }
+        }
+        if (ArcanumTechnologicalSkills.includes(skill as typeof ArcanumTechnologicalSkills[number])) {
+            result.Technological = {
+                ...result.Technological,
                 [skill]: rank
             }
         }
