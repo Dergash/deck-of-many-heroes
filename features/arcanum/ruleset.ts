@@ -1,9 +1,14 @@
 import { Hero } from '../../types/baseTypes'
+import { FireSpells } from './spells/fire'
+import { ForceSpells } from './spells/force'
+import { NecromanticWhiteSpells } from './spells/necromantic-white'
+import { SummoningSpells } from './spells/summoning'
 
 export interface ArcanumHero extends Hero {
     game: 'Arcanum'
     startingLevel: number
     spells?: ArcanumSpell[]
+    skills: Partial<Record<ArcanumSkillName, number>>,
     strength: number
     constitution: number
     dexterity: number
@@ -11,7 +16,8 @@ export interface ArcanumHero extends Hero {
     intelligence: number
     willpower: number
     perception: number
-    charisma: number
+    charisma: number,
+    levelingScheme: string
 }
 
 export type PrimaryStat = 'Strength' | 'Constitution' | 'Dexterity' | 'Beauty' | 'Intelligence' | 'Willpower' | 'Perception' | 'Charisma'
@@ -33,21 +39,42 @@ export type MagicCollege = 'Conveyance'
     | 'Summoning'
     | 'Temporal'
 
+export const MagicCollegeCodes: Record<string, ArcanumSpell[]> = {
+    necro_good: NecromanticWhiteSpells,
+    force: ForceSpells,
+    fire: FireSpells,
+    summoning: SummoningSpells
+}
+
 export type MagicCollegeRank = 1 | 2 | 3 | 4 | 5
 
 export type TechnologicalDisciplineRank = 1 | 2 | 3 | 4 | 5 | 6 | 7
 
-export type ArcanumSkill = {
-    name: ArcanumSkillName
-    group: ArcanumSkillGroup
+export const ArcanumCombatSkills = ['Bow', 'Dodge', 'Melee', 'Throwing'] as const
+export const ArcanumThievingSkills = ['Backstab',  'Pick Pocket', 'Prowling', 'Spot Traps'] as const
+export const ArcanumSocialSkills = ['Gambling' , 'Haggle' , 'Heal' , 'Persuasion'] as const
+export const ArcanumTechnologicalSkills = ['Repair' , 'Firearms' , 'Pick Locks' , 'Disarm Traps'] as const
+export const ArcanumSkillNames = [
+    ...ArcanumCombatSkills,
+    ...ArcanumThievingSkills, 
+    ...ArcanumSocialSkills, 
+    ...ArcanumTechnologicalSkills, 
+] as const
+
+export const ArcanumSkillCodes = {
+    melee: 'Melee',
+    dodge: 'Dodge',
+    picklock: 'Pick Locks',
+    heal: 'Heal'
 }
 
-export type ArcanumSkillName = 'Bow' | 'Dodge' | 'Melee' | 'Throwing'
-    | 'Backstab' | 'Pick Pocket' | 'Prowling' | 'Spot Traps'
-    | 'Gambling' | 'Haggle' | 'Heal' | 'Persuasion'
-    | 'Repair' | 'Firearms' | 'Pick Locks' | 'Disarm Traps'
+export type ArcanumSkillName = typeof ArcanumSkillNames[number]
 
 export type ArcanumSkillGroup = 'Combat' | 'Thieving' | 'Social' | 'Technological'
+
+export type ArcanumSkillSet = Partial<Record<ArcanumSkillName, number>>
+
+export type ArcanumSkillGroupSet = Partial<Record<ArcanumSkillGroup, ArcanumSkillSet>>
 
 export type ArcanumSpell = {
     /**
@@ -93,16 +120,32 @@ export function isArcanumHero(hero: Hero): hero is ArcanumHero {
     return hero.game === 'Arcanum'
 }
 
-export type LevelingSchemeItem = Record<MagicCollege, MagicCollegeRank>
-    | Record<TechnologicalDiscipline, TechnologicalDisciplineRank>
-    | Record<keyof ArcanumSkill['name'], number>
-    | Record<PrimaryStat, number>
+export type LevelingSchemeSpell = {
+    type: 'spell'
+    spell: ArcanumSpell
+} 
+
+export type LevelingSchemeSkill = {
+    type: 'skill'
+    skill: ArcanumSkillName
+    rank: number
+}
+
+export type LevelingSchemeTechnology = {
+    type: 'technology'
+    discipline: TechnologicalDiscipline
+    rank: TechnologicalDisciplineRank
+}
+
+export type LevelingSchemeStat = {
+    type: 'stat'
+    stat: PrimaryStat
+    rank: number
+}
+
+export type LevelingSchemeItem = LevelingSchemeStat | LevelingSchemeSkill | LevelingSchemeSpell | LevelingSchemeTechnology
 
 export type LevelingScheme = LevelingSchemeItem[]
-
-export function applyLevelingScheme(hero: ArcanumHero, scheme: LevelingSchemeItem) {
-    // todo
-}
 
 export const levelProgression: Record<number, number> = {
     1: 0,

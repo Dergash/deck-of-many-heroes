@@ -4,6 +4,8 @@ import { DetailsCard } from '../ui/DetailsCard'
 import styles from './ArcanumDetails.module.css'
 import { observer } from 'mobx-react-lite'
 import { StoreContext } from '../store/store'
+import { applyLevelingScheme } from './utils'
+import { ArcanumCombatSkills, ArcanumSkill, ArcanumSkillGroup, ArcanumSkillGroupSet, ArcanumSkillName, ArcanumSkillSet } from '.'
 
 export interface ArcanumDetailsProps {
     hero: ArcanumHero
@@ -14,9 +16,11 @@ export function ArcanumDetails({ hero }: ArcanumDetailsProps) {
     const dynamicXp = store.dynamicXp[hero.id]
     const startingXp = levelProgression[hero.startingLevel]
     const level = dynamicXp
-        ? Object.entries(levelProgression).find(([key]) => levelProgression[Number.parseInt(key, 10)] === dynamicXp)?.[0]
+        ? getLevelFromXp(dynamicXp)
         : hero.startingLevel
-    const spells = groupSpellsByCollege(hero.spells)
+    const selectedLevelHero = applyLevelingScheme(hero, level - hero.startingLevel)
+    const spells = groupSpellsByCollege(selectedLevelHero.spells)
+    const skills = groupSkills(selectedLevelHero.skills)
 
     return <DetailsCard name={hero.name}>
         <img src={hero.portrait} className={styles.portrait} />
@@ -41,6 +45,7 @@ export function ArcanumDetails({ hero }: ArcanumDetailsProps) {
                     <h3>Spells</h3>
                     {Object.entries(spells).map(([college, spells]) => {
                         return <ul key={college}>
+                            <h4 className={styles.college}>{college}</h4>
                             {spells.map(spell => {
                                 return <li key={spell.name}>
                                     {spell.name}
@@ -50,6 +55,22 @@ export function ArcanumDetails({ hero }: ArcanumDetailsProps) {
                     })}
                 </div> 
             }
+            { skills && Object.keys(skills).length > 0 &&
+                <div>
+                    <h3>Skills</h3>
+                    {Object.entries(skills).map(([group, set]) => {
+                        return <ul key={group}>
+                            <h4 className={styles.college}>{group}</h4>
+                            {Object.entries(set).map(([skill, rank]) => {
+                                return <li key={skill}>
+                                    {skill}: {rank}
+                                </li>
+                            })}
+                        </ul>
+                    })}
+                </div>
+            }
+
         </div>
     </DetailsCard>
 }
@@ -58,9 +79,9 @@ export function ArcanumDetails({ hero }: ArcanumDetailsProps) {
  * TODO: Move to utils
  */
 function getLevelFromXp(xp: number) {
-    return Object.entries(levelProgression)
+    return Number.parseInt(Object.entries(levelProgression)
         .find(([key]) => levelProgression[Number.parseInt(key, 10)] === xp)
-        ?.[0]
+        ?.[0]!, 10)
 }
 
 function groupSpellsByCollege(spells?: ArcanumSpell[]) {
@@ -75,6 +96,19 @@ function groupSpellsByCollege(spells?: ArcanumSpell[]) {
         }
         return result
     }, {})
+}
+
+function groupSkills(skills: ArcanumSkillSet) {
+    const result: ArcanumSkillGroupSet = {}
+    Object.entries(skills).forEach(([skill, rank]) => {
+        if (ArcanumCombatSkills.includes(skill as typeof ArcanumCombatSkills[number])) {
+            result.Combat = {
+                ...result.Combat,
+                [skill]: rank
+            }
+        }
+    })
+    return result
 }
 
 export default observer(ArcanumDetails)
