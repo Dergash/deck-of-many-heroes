@@ -23,6 +23,7 @@ export function ArcanumCard({ hero, onClick }: ArcanumCardProps) {
         setXp(newXp)
         runInAction(() => {
             store.dynamicXp[hero.id] = newXp
+            onClick?.(hero.id)
         })
     }
 
