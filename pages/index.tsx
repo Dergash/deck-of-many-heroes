@@ -12,7 +12,7 @@ import { BGDetails } from '../features/bg/BGDetails'
 import { isNwnHero } from '../features/nwn'
 import { NeverwinterDetails } from '../features/nwn/NeverwinterDetails'
 import { isArcanumHero } from '../features/arcanum'
-import { ArcanumDetails } from '../features/arcanum/ArcanumDetails'
+import ArcanumDetails from '../features/arcanum/ArcanumDetails'
 import { DetailsCard } from '../features/ui/DetailsCard'
 import { action, runInAction } from 'mobx'
 

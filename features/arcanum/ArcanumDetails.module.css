@@ -3,3 +3,8 @@
     margin-top: 16px;
     margin-bottom: 16px;
 }
+
+.info {
+    display: flex;
+    flex-direction: column;
+}

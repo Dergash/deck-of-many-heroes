@@ -1,7 +1,10 @@
-import React, {useState, FormEvent} from 'react'
+import React, {useState, FormEvent, useContext} from 'react'
 import { levelProgression, ArcanumHero } from './ruleset'
 import styles from './ArcanumCard.module.css'
 import cn from '../../styles/cn'
+import { runInAction } from 'mobx'
+import { StoreContext } from '../store/store'
+import { observer } from 'mobx-react-lite'
 
 export interface ArcanumCardProps {
     hero: ArcanumHero
@@ -9,6 +12,7 @@ export interface ArcanumCardProps {
 } 
 
 export function ArcanumCard({ hero, onClick }: ArcanumCardProps) {
+    const store = useContext(StoreContext)
     const startingXp = levelProgression[hero.startingLevel]
     const [xp, setXp] = useState(startingXp)
     const level = Object.entries(levelProgression).find(([key]) => levelProgression[Number.parseInt(key, 10)] === xp)?.[0]
@@ -17,6 +21,9 @@ export function ArcanumCard({ hero, onClick }: ArcanumCardProps) {
         const newLevel = Number.parseInt(e.currentTarget.value, 10)
         const newXp = levelProgression[newLevel]
         setXp(newXp)
+        runInAction(() => {
+            store.dynamicXp[hero.id] = newXp
+        })
     }
 
     const handleCardClick = () => {
@@ -62,3 +69,5 @@ export function ArcanumCard({ hero, onClick }: ArcanumCardProps) {
         </div>
     </div>
 }
+
+export default observer(ArcanumCard)

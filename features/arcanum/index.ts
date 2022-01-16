@@ -1,2 +1,2 @@
 export * from './ruleset'
-export * from './ArcanumCard'
+export { default as ArcanumCard } from './ArcanumCard'

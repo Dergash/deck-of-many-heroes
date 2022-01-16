@@ -1,4 +1,5 @@
 import { ArcanumHero } from '../ruleset'
+import { NecromanticWhiteSpells } from '../spells/necromantic-white'
 
 export const virgil: ArcanumHero = {
     id: '5',
@@ -14,5 +15,8 @@ export const virgil: ArcanumHero = {
     intelligence: 7,
     willpower: 8,
     perception: 8,
-    charisma: 8
+    charisma: 8,
+    spells: [
+        NecromanticWhiteSpells[0]
+    ]
 }
