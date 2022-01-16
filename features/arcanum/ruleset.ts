@@ -1,6 +1,7 @@
 import { Hero } from '../../types/baseTypes'
 import { FireSpells } from './spells/fire'
 import { ForceSpells } from './spells/force'
+import { NecromanticBlackSpells } from './spells/necromantic-black'
 import { NecromanticWhiteSpells } from './spells/necromantic-white'
 import { SummoningSpells } from './spells/summoning'
 
@@ -41,6 +42,7 @@ export type MagicCollege = 'Conveyance'
 
 export const MagicCollegeCodes: Record<string, ArcanumSpell[]> = {
     necro_good: NecromanticWhiteSpells,
+    necro_evil: NecromanticBlackSpells,
     force: ForceSpells,
     fire: FireSpells,
     summoning: SummoningSpells
