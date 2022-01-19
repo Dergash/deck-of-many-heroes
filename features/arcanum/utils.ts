@@ -1,4 +1,4 @@
-import { ArcanumHero, ArcanumSkillCodes, LevelingScheme } from '.'
+import { ArcanumHero, ArcanumSkillCodes, ArcanumSpell, LevelingScheme } from '.'
 import { LevelingSchemeItem, ArcanumSkillName, ArcanumSkillNames, MagicCollegeCodes } from './ruleset'
 
 /**
@@ -63,4 +63,27 @@ export function applyLevelingScheme(hero: ArcanumHero, levels: number) {
     })
     return result
     // todo
+}
+
+
+/**
+ * Applies spell from leveling scheme if requirments are met
+ *
+ * If not, applies primary stat leveling
+ *
+ * @param hero 
+ * @param spell 
+ */
+export function applySpellLeveling(hero: ArcanumHero, spell: ArcanumSpell): LevelingSchemeItem {
+    if (spell.willpower > hero.willpower) {
+        return {
+            type: 'stat',
+            stat: 'Willpower',
+            rank: hero.willpower + 1
+        }
+    }
+    return {
+        type: 'spell',
+        spell
+    }
 }
