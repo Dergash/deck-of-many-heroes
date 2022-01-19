@@ -12,6 +12,11 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
+  collectCoverageFrom: [
+    'features/**/*.{ts,tsx}',
+    'pages/**/*.{ts,tsx}',
+    'styles/**/*.ts'
+  ]
 }
 
 module.exports = createJestConfig(customJestConfig)
