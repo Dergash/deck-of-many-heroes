@@ -1,6 +1,9 @@
 # Deck of Many Heroes
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=deck-of-many-heroes.vercel.app)](https://deck-of-many-heroes.vercel.app)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=deck-of-many-heroes&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=deck-of-many-heroes)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=deck-of-many-heroes&metric=coverage)](https://sonarcloud.io/summary/new_code?id=deck-of-many-heroes)
+
 
 **Note**: Work in Progress
 
