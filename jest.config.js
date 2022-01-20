@@ -15,7 +15,9 @@ const customJestConfig = {
   collectCoverageFrom: [
     'features/**/*.{ts,tsx}',
     'pages/**/*.{ts,tsx}',
-    'styles/**/*.ts'
+    'styles/**/*.ts',
+    '!**/ruleset.ts',
+    '!**/index.ts'
   ]
 }
 
