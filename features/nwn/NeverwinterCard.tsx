@@ -21,14 +21,14 @@ export function NeverwinterCard({ hero, onClick }: NeverwinterCardProps) {
     const handleCardClick = () => {
         onClick?.(card.id)
     }
-
+    const smallName = card.name.length > 14
     return <div
         className={cn(styles.container, { [styles.clickable]: Boolean(onClick) }) }
         onClick={handleCardClick}
     >
         <aside className={styles.sider}>
             <img src={`/${hero[cardIndex].portrait}`} width="128px" height="200px" />
-            <h2 className={cn(styles.name, { [styles.small]: card.name.length > 14 })}>
+            <h2 className={cn(styles.name, { [styles.small]: smallName })}>
                 {card.name}
             </h2>
         </aside>
