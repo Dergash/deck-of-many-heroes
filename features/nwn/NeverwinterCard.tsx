@@ -28,7 +28,7 @@ export function NeverwinterCard({ hero, onClick }: NeverwinterCardProps) {
     >
         <aside className={styles.sider}>
             <img src={`/${hero[cardIndex].portrait}`} width="128px" height="200px" />
-            <h2 className={styles.name}>
+            <h2 className={cn(styles.name, { [styles.small]: card.name.length > 14 })}>
                 {card.name}
             </h2>
         </aside>
@@ -57,9 +57,6 @@ export function NeverwinterCard({ hero, onClick }: NeverwinterCardProps) {
             </span>
             <span>
                 Saving Throws: {getDisplayedSaves(card.saves)}
-            </span>
-            <span>
-                Skills: {getDisplayedSkills(card.skills)}
             </span>
         </div>
     </div>
