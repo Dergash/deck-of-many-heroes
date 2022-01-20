@@ -7,7 +7,10 @@ import {
   minsc, minsc2, minsc4, minsc6,
   tiax, viconi
 } from '../../features/bg'
-import { linu4, linu5, linu6, linu7 } from '../../features/nwn/heroes'
+import {
+  linu4, linu5, linu6, linu7,
+  tomi4, tomi5, tomi6, tomi7
+} from '../../features/nwn/heroes'
 import { AnyHero } from '../../types/baseTypes'
 
 type Data = AnyHero[]
@@ -41,6 +44,10 @@ export function getHeroes(): AnyHero[] {
     linu4,
     linu5,
     linu6,
-    linu7
+    linu7,
+    tomi4,
+    tomi5,
+    tomi6,
+    tomi7
   ]
 }
