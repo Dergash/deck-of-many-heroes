@@ -2,6 +2,7 @@ import React from 'react'
 import { NwnHero } from './ruleset'
 import styles from './NeverwinterDetails.module.css'
 import DetailsCard from '../ui/DetailsCard'
+import { NeverwinterItem } from './NeverwinterItem'
 
 export interface NeverwinterDetailsProps {
     hero: NwnHero
@@ -67,6 +68,18 @@ export function NeverwinterDetails({ hero }: NeverwinterDetailsProps) {
                     })}
                 </ul>
             </div>
+            { hero.equipment &&
+                <div>
+                    <h3>Items</h3>
+                    <ul>
+                        {Object.values(hero.equipment).map(item =>
+                            <li key={item.name}>
+                                <NeverwinterItem item={item} />
+                            </li>    
+                        )}
+                    </ul>
+                </div>
+            }
         </div>
     </DetailsCard>
 }

@@ -1,3 +1,5 @@
+import { bandedMail, bootsOfStriding1, largeShield } from '../items/armor'
+import { mace1 } from '../items/weapon'
 import { NwnHero } from '../ruleset'
 
 export const linu4: NwnHero = {
@@ -25,6 +27,12 @@ export const linu4: NwnHero = {
       Concentration: 6,
       Discipline: 3,
       Listen: 1,
+    },
+    equipment: {
+      armor: bandedMail,
+      shield: largeShield,
+      boots: bootsOfStriding1,
+      weapon: mace1
     }
 }
 
@@ -80,4 +88,24 @@ export const linu7: NwnHero = {
       Listen: 1,
       Spot: 1
     }
+}
+
+export const linu8: NwnHero = {
+  ...linu7,
+  id: '18',
+  startingLevel: {
+    Cleric: 8
+  },
+  baseHp: 61,
+  saves: {
+    fortitude: 6,
+    reflex: 2,
+    will: 6
+  },
+  skills: {
+    Concentration: 10,
+    Discipline: 5,
+    Listen: 1,
+    Spot: 1
+  }
 }

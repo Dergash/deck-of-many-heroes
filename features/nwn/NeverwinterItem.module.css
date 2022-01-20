@@ -1,0 +1,26 @@
+.container {
+    position: relative;
+}
+
+.label {
+    color: --var(primary);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: absolute;
+    display: none;
+    background: white;
+    border: 1px solid black;
+    padding: 8px;
+    flex-direction: column;
+    top: -32px;
+    left: -128px;
+    z-index: 10;
+}
+
+.container:hover .tooltip {
+   /* display: flex; */
+}
