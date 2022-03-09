@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { geoffrey, jayna, sogg, virgil } from '../../features/arcanum/heroes'
 import {
-  garrick,
+  garrick, garrick2, garrick4, garrick6,
   imoen1, imoen2, imoen4, imoen6, imoenBg2_1200, imoenBg2_400,
   minsc, minsc2, minsc4, minsc6,
   tiax, viconi
@@ -38,6 +38,9 @@ export function getHeroes(): AnyHero[] {
     minsc4,
     minsc6,
     garrick,
+    garrick2,
+    garrick4,
+    garrick6,
     viconi,
     tiax,
     geoffrey,
